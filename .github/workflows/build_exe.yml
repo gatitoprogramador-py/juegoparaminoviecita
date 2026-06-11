@@ -1,0 +1,20 @@
+name: Build Windows EXE
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - run: |
+        pip install pygame pyinstaller
+    - run: |
+        pyinstaller --name JuegoParaMiNovia --onefile --add-data "the scratch/music;music" --noconsole "the scratch/main5.py"
+    - uses: actions/upload-artifact@v4
+      with:
+        name: JuegoParaMiNovia
+        path: dist/JuegoParaMiNovia.exe
