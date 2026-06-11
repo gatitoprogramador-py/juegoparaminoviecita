@@ -13,7 +13,7 @@ jobs:
     - run: |
         pip install pygame pyinstaller
     - run: |
-        pyinstaller --name JuegoParaMiNovia --onefile --add-data "music;music" --noconsole "the scratch/main5.py"
+        pyinstaller --name JuegoParaMiNovia --onefile --add-data "music;music" --noconsole "main5.py"
     - uses: actions/upload-artifact@v4
       with:
         name: JuegoParaMiNovia
